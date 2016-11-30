@@ -1,0 +1,30 @@
+Machine état :
+
+etats : normal, THRU, ADD
+
+normal :
+A : set canal
+B : enter
+C : clear
+D : switch to mode THRU
+E : switch to mode ADD
++ : NEXT (valeur courante ou 255?)
+- : PREVIEW
+
+THRU :
+A : fin d'entree des canaux
+B : enter -> clear tableau canaux canal et value et exit mode THRU to normal mode
+C : clear
+D : set mode THRU (again)
+E : set mode ADD
++ : valide canal et attend canal suivant (idem A)
+- : nothing
+
+ADD :
+A : fin d'entree des canaux
+B : enter -> clear tableau canaux canal et value et exit mode THRU to normal mode
+C : clear
+D : set mode THRU
+E : set mode ADD (again)
++ : valide canal et attend canal suivant (idem A)
+- : nothing
