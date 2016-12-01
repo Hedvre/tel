@@ -26,6 +26,9 @@ mode state = normal;
 
 int i, j = 0;
 
+//Def fonction
+void gestionChar(char c);
+
 
 //déclarations pour modes Add et thru
 		int tab[16] = {0}; // contient des n° de canal
@@ -34,10 +37,15 @@ int i, j = 0;
 		int iThru = 0;
 		int jThru = 0;
 
-int main(int argc, char const *argv[])
-{
-while(c!='X'){
-	scanf("%c", &c);
+int main(){
+	while(c!='X'){
+		scanf("%c", &c);
+		gestionChar(c);
+	}
+}
+
+
+void gestionChar(char c){
 	/* code */
 	//gestion des chiffres
 	if ((c>='0') && (c<='9')) {
@@ -138,9 +146,9 @@ while(c!='X'){
 			}
 			break;
 
-/*Mode ADD : permet d'Affecter une valeur à plusieurs canaux
-procédure : E - n° canal - +/A - n° canal - +/A - valeur - B
-*/
+		/*Mode ADD : permet d'Affecter une valeur à plusieurs canaux
+		procédure : E - n° canal - +/A - n° canal - +/A - valeur - B
+		*/
 		case add :
 
 			if(c=='A'){
@@ -170,6 +178,4 @@ procédure : E - n° canal - +/A - n° canal - +/A - valeur - B
 			break;   	
     			}
     }
-}
-	return 0;
 }
