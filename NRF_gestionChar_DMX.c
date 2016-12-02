@@ -8,7 +8,7 @@
 int msg[1];
 RF24 radio(9,10);
 const uint64_t pipe = 0xE8E8F0F0E1LL;
-int LED1 = 3;
+
 
 //////////GestionChar
 /*
