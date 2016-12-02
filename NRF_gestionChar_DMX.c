@@ -51,7 +51,6 @@ Serial.begin(9600);
 radio.begin();
 radio.openReadingPipe(1,pipe);
 radio.startListening();
-pinMode(LED1, OUTPUT);
 }
 
 
