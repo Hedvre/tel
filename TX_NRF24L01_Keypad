@@ -39,10 +39,12 @@ void loop(void){
   while(1){
     char key = keypad.getKey();
     if (key){
+      if(key == 'D' && digitalRead(SW1) == HIGH){key = 'E';}
       Serial.println(key);
       msg[0] = 'A';
       radio.write(msg, 1);
       radio.write(&key, sizeof(char));
+      
     }
   }
 }
