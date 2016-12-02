@@ -1,7 +1,7 @@
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
-#include <DmxSimple.h>
+#include <DMXSerial.h>
 
 
 ///////////NRF
@@ -82,11 +82,11 @@ void gestionChar(char c){
     //fonction clear all
   else if (c=='C'){
     state = normal;
-    //DmxSimple.clear();
+    //DMXSerial.clear();
     Serial.print("clear all\n");
     for(i=1; i<=255; ++i){
       Serial.print("channel "); Serial.print(i); Serial.println(" value 0");
-      DmxSimple.write(i, 0);
+      DMXSerial.write(i, 0);
     }
     channel = 0;
     value = 0;
@@ -120,22 +120,22 @@ void gestionChar(char c){
         value = 0;
       }
       else if (c=='B'){
-        DmxSimple.write(channel, value);
+        DMXSerial.write(channel, value);
         Serial.print("channel "); Serial.print(channel); Serial.print(" value "); Serial.println(value);
         value = 0;
       }
       else if (c=='+'){
-        DmxSimple.write(channel, 0);
+        DMXSerial.write(channel, 0);
         Serial.print("channel "); Serial.print(channel); Serial.println(" value 0");
         channel += 1;
-        DmxSimple.write(channel, 255);
+        DMXSerial.write(channel, 255);
         Serial.print("channel "); Serial.print(channel); Serial.println(" value 255");
       }
       else if (c=='-'){
-        DmxSimple.write(channel, 0);
+        DMXSerial.write(channel, 0);
         Serial.print("channel "); Serial.print(channel); Serial.println(" value 0");
         channel -= 1;
-        DmxSimple.write(channel, 255);
+        DMXSerial.write(channel, 255);
         Serial.print("channel "); Serial.print(channel); Serial.println(" value 255");
       }
       break;
@@ -151,7 +151,7 @@ void gestionChar(char c){
           for(iThru = tab[0]; iThru<= tab[1]; ++iThru){
             ///!!!! à modifier pour que le DMX envoi aussi aux premiers canaux et
             ///pas seulement à partir de tab[0]
-            DmxSimple.write(iThru, value);
+            DMXSerial.write(iThru, value);
             Serial.print("channel "); Serial.print(iThru); Serial.print(" value "); Serial.println(value);
           }
         }
@@ -159,7 +159,7 @@ void gestionChar(char c){
           for(iThru = tab[1]; iThru <= tab[0]; ++iThru){
             ///!!!! à modifier pour que le DMX envoi aussi aux premiers canaux et
             ///pas seulement à partir de tab[1]
-            DmxSimple.write(iThru, value);
+            DMXSerial.write(iThru, value);
             Serial.print("channel "); Serial.print(iThru); Serial.print(" value "); Serial.println(value);
           }
         }
@@ -189,7 +189,7 @@ void gestionChar(char c){
       }
       else if (c=='B'){
         for(jAdd=0; jAdd<iAdd; ++jAdd){
-          DmxSimple.write(tab[jAdd], value);
+          DMXSerial.write(tab[jAdd], value);
           Serial.print("channel "); Serial.print(tab[jAdd]); Serial.print(" value "); Serial.println(value);
         }
         value = 0;
