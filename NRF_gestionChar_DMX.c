@@ -9,6 +9,19 @@ int msg[1];
 RF24 radio(9,10);
 const uint64_t pipe = 0xE8E8F0F0E1LL;
 
+/*
+Wiring
+
+Wire nRF24L01+ to Arduino UNO
+
+GND <–> GND
+VCC <–> Arduino 3.3V
+CE <–> Arduino pin 9
+CSN <–> Arduino pin 10
+SCK <–> Arduino pin 13
+MOSI <–> Arduino pin 11
+MISO <–> Arduino pin 12
+*/
 
 //////////GestionChar
 /*
