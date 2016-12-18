@@ -143,6 +143,7 @@ void gestionChar(char c){
         DmxSimple.write(channel, 0);
         Serial.print("channel "); Serial.print(channel); Serial.println(" value 0");
         channel += 1;
+        if(channel>255){channel = 255;}
         DmxSimple.write(channel, 255);
         Serial.print("channel "); Serial.print(channel); Serial.println(" value 255");
       }
@@ -150,6 +151,7 @@ void gestionChar(char c){
         DmxSimple.write(channel, 0);
         Serial.print("channel "); Serial.print(channel); Serial.println(" value 0");
         channel -= 1;
+        if(channel < 1){channel = 1}
         DmxSimple.write(channel, 255);
         Serial.print("channel "); Serial.print(channel); Serial.println(" value 255");
       }
