@@ -21,6 +21,9 @@ CSN <–> Arduino pin 10
 SCK <–> Arduino pin 13
 MOSI <–> Arduino pin 11
 MISO <–> Arduino pin 12
+
+DMX
+Data In <-> Arduino pin 3
 */
 
 //////////GestionChar
